@@ -1,21 +1,37 @@
-from Operacoes import Opecacoes
+from Calculadora.Operacoes import Opecacoes
 
 class Perguntas:
-    def pergunta_numero():
+
+    def __init__(self, n1,n2,tipo):
+        self.__n1 = n1
+        self.__n2 = n2
+        self.__tipo = tipo
+
+    def set_n1(self, n1):
         a = 1
         while a == 1:
             try:
-                n1 = float(input('Digite o primeiro número: '))
-                n2 = float(input('Digite o segundo número: '))
+                self.__n1 = float(input('Informe o primeiro número: '))
                 a = 2
             except ValueError:
-                print('Você é um macaco que digitou errado, faz de novo.')
+                print('Você deve digitar apenas valores numéricos.')
+        return self.__n1
 
-    def pergunta_tipo():
-        resposta = 0
-        while resposta == 0:
+    def set_n2(self, n2):
+        a = 1
+        while a == 1:
             try:
-                resposta = int(input('''Qual tipo de operação você deseja fazer?:
+                self.__n2 = float(input('Informe o segundo número: '))
+                a = 2
+            except ValueError:
+                print('Você deve digitar apenas valores numéricos.')
+        return self.__n2
+
+    def set_tipo(self,tipo):
+        self.__tipo = 0
+        while self.__tipo <=0 or self.__tipo >6:
+            try:
+                self.__tipo = int(input('''Informe o tipo de operação que deseja:
                 1- Soma
                 2- Subtração
                 3- Multiplicação
@@ -25,20 +41,20 @@ class Perguntas:
     
                 Resposta: '''))
             except ValueError:
-                print('Você é um macaco que digitou errado, faz de novo.')
-        return resposta
+                print('Você deve digitar um dos números correspontes as operações acima, apenas valores numéricos.')
+        return self.__tipo
 
-    def resposta(b):
+    def get_resposta(self,n1,n2,tipo):
         Calc = Opecacoes()
-        if resposta == 1:
+        if self.__tipo == 1:
             return (Calc.soma(n1, n2))
-        elif resposta == 2:
+        elif self.__tipo == 2:
             return (Calc.subtracao(n1, n2))
-        elif resposta == 3:
+        elif self.__tipo == 3:
             return (Calc.multiplicacao(n1, n2))
-        elif resposta == 4:
+        elif self.__tipo == 4:
             return (Calc.divisao_decimal(n1, n2))
-        elif resposta == 5:
+        elif self.__tipo == 5:
             return (Calc.divisao_exata(n1, n2))
-        elif resposta == 6:
+        elif self.__tipo == 6:
             return (Calc.resto(n1, n2))
