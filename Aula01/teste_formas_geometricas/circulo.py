@@ -9,7 +9,7 @@ class Circulo:
     def set_cor(self,cor):
         self.__cor = cor
 
-    def get_cor(self,cor):
+    def get_cor(self):
         return self.__cor
 
     def calcular_area(self,raio):

@@ -6,11 +6,20 @@ class Perguntas:
         self.__n2 = n2
         self.__tipo = tipo
 
+    # def set_n1(self,n1):
+    #     a = 1
+    #     while a == 1:
+    #         try:
+    #             n1 = float(n1)
+    #             a = 2
+    #             self.__n1 = n1
+    #         except ValueError:
+    #             return False
+    #     return self.__n1
+
     def set_n1(self, n1):
         a = 1
         while a == 1:
-            # Use o Try para quando você não consegue controlar o erro mas consegue prever que pode ocorrer.
-            # Use o um if para filtro!
             try:
                 self.__n1 = float(input('Informe o primeiro número: '))
                 a = 2
@@ -29,52 +38,40 @@ class Perguntas:
         return self.__n2
 
     def set_tipo(self,tipo):
-        self.__tipo = 0
-        while self.__tipo <=0 or self.__tipo >6:
-            try:
-                self.__tipo = int(input('''Informe o tipo de operação que deseja:
-                1- Soma
-                2- Subtração
-                3- Multiplicação
-                4- Divisão decimal
-                5- Divisão exata
-                6- Resto da divisão
+        self.__tipo = '0'
+        while self.__tipo <='0' or self.__tipo >'6':
+            self.__tipo = input('''Informe o tipo de operação que deseja:
+            1- Soma
+            2- Subtração
+            3- Multiplicação
+            4- Divisão decimal
+            5- Divisão exata
+            6- Resto da divisão
     
-                Resposta: '''))
-            except ValueError:
-                print('Você deve digitar um dos números correspontes as operações acima, apenas valores numéricos.')
+            Resposta: ''')
+            if self.__tipo <='0' or self.__tipo >'6':
+                print('Você deve digitar um dos números correspontes as operações acima.')
         return self.__tipo
 
     def get_resposta(self,n1,n2,tipo):
-<<<<<<< HEAD
-        Calc = Opecacoes(n1,n2)
-=======
-        # o calc não inicia com letra minuscula! É uma variável.... Lei o PEP 8 do python!
-        Calc = Opecacoes()
->>>>>>> d86ca826e15ff386453a4d20f14b592577d70ee2
-        if self.__tipo == 1:
-            return (Calc.soma(n1, n2))
-        elif self.__tipo == 2:
-            return (Calc.subtracao(n1, n2))
-        elif self.__tipo == 3:
-            return (Calc.multiplicacao(n1, n2))
-        elif self.__tipo == 4:
-            return (Calc.divisao_decimal(n1, n2))
-        elif self.__tipo == 5:
-            return (Calc.divisao_exata(n1, n2))
-        elif self.__tipo == 6:
-<<<<<<< HEAD
-            return (Calc.resto(n1, n2))
-=======
-            return (Calc.resto(n1, n2))
-        
-################################################
-# Faltou o if __name__......
+        calc = Opecacoes(n1,n2)
+        if self.__tipo == '1':
+            return (calc.soma(n1, n2))
+        elif self.__tipo == '2':
+            return (calc.subtracao(n1, n2))
+        elif self.__tipo == '3':
+            return (calc.multiplicacao(n1, n2))
+        elif self.__tipo == '4':
+            return (calc.divisao_decimal(n1, n2))
+        elif self.__tipo == '5':
+            return (calc.divisao_exata(n1, n2))
+        elif self.__tipo == '6':
+            return (calc.resto(n1, n2))
 
-        
-calc = Perguntas(0,0,0)
-n1 = calc.set_n1(0)
-tipo = calc.set_tipo(0)
-n2 = calc.set_n2(0)
-print(calc.get_resposta(n1,n2,tipo))
->>>>>>> d86ca826e15ff386453a4d20f14b592577d70ee2
+if __name__ == '__main__':
+
+    calc = Perguntas(0,0,0)
+    n1 = calc.set_n1()
+    tipo = calc.set_tipo(0)
+    n2 = calc.set_n2()
+    print(calc.get_resposta(n1,n2,tipo))

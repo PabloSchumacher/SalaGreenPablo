@@ -3,7 +3,7 @@ from Calculadora.Perguntas import Perguntas
 
 n1 = float(input('Informe o primeiro número: '))
 n2 = float(input('Informe o segundo número: '))
-tipo = int(input('Informe o tipo de operação que deseja: '))
+tipo = input('Informe o tipo de operação que deseja: ')
 operacoes = Opecacoes(n1,n2)
 perguntas = Perguntas(n1,n2,tipo)
 
@@ -45,17 +45,20 @@ print('Teste da operacao resto() iniciado')
 assert n1%n2 == operacoes.resto(n1,n2), f'Erro! O resto da divisão entre {n1} e {n2} não deu {n1%n2}!'
 print('Teste da operacao resto(): Ok \n')
 
-print('Teste de get_resposta() iniciado')
-if tipo == 1:
-    assert operacoes.soma(n1,n2) == perguntas.get_resposta(n1,n2,tipo)
-elif tipo == 2:
-    assert operacoes.subtracao(n1,n2) == perguntas.get_resposta(n1,n2,tipo)
-elif tipo == 3:
-    assert operacoes.multiplicacao(n1,n2) == perguntas.get_resposta(n1,n2,tipo)
-elif tipo == 4:
-    assert operacoes.divisao_decimal(n1,n2) == perguntas.get_resposta(n1,n2,tipo)
-elif tipo == 5:
-    assert operacoes.divisao_exata(n1,n2) == perguntas.get_resposta(n1,n2,tipo)
-elif tipo == 6:
-    assert operacoes.resto(n1,n2) == perguntas.get_resposta(n1,n2,tipo)
-print('Teste de get_resposta(): Ok \n')
+tipo = 0
+for i in range (6):
+    tipo += 1
+    print(f'Teste de get_resposta() do tipo {tipo} iniciado')
+    if tipo == f'{i}':
+        assert operacoes.soma(n1,n2) == perguntas.get_resposta(n1,n2,tipo), f'Erro! O resultado da soma está errado!'
+    elif tipo == f'{i}':
+        assert operacoes.subtracao(n1,n2) == perguntas.get_resposta(n1,n2,tipo), f'Erro! O resultado da subtracao está errado!'
+    elif tipo == f'{i}':
+        assert operacoes.multiplicacao(n1,n2) == perguntas.get_resposta(n1,n2,tipo), f'Erro! O resultado da multiplicacao está errado!'
+    elif tipo == f'{i}':
+        assert operacoes.divisao_decimal(n1,n2) == perguntas.get_resposta(n1,n2,tipo), f'Erro! O resultado da divisao decimal está errado!'
+    elif tipo == f'{i}':
+        assert operacoes.divisao_exata(n1,n2) == perguntas.get_resposta(n1,n2,tipo), f'Erro! O resultado da divisao exata está errado!'
+    elif tipo == f'{i}':
+        assert operacoes.resto(n1,n2) == perguntas.get_resposta(n1,n2,tipo), f'Erro! O resultado do resto está errado!'
+    print('Teste de get_resposta(): Ok \n')

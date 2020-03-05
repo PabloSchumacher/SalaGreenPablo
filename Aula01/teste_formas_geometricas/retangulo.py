@@ -10,10 +10,10 @@ class Retangulo:
         self.__altura = altura
 
     def get_base(self):
-        return self.__altura
+        return self.__base
 
     def get_altura(self):
         return self.__altura
 
-    def calcular_altura(self):
+    def calcular_area(self, base, altura):
         return self.__base*self.__altura
