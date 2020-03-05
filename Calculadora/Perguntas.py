@@ -9,6 +9,8 @@ class Perguntas:
     def set_n1(self, n1):
         a = 1
         while a == 1:
+            # Use o Try para quando você não consegue controlar o erro mas consegue prever que pode ocorrer.
+            # Use o um if para filtro!
             try:
                 self.__n1 = float(input('Informe o primeiro número: '))
                 a = 2
@@ -44,7 +46,12 @@ class Perguntas:
         return self.__tipo
 
     def get_resposta(self,n1,n2,tipo):
+<<<<<<< HEAD
         Calc = Opecacoes(n1,n2)
+=======
+        # o calc não inicia com letra minuscula! É uma variável.... Lei o PEP 8 do python!
+        Calc = Opecacoes()
+>>>>>>> d86ca826e15ff386453a4d20f14b592577d70ee2
         if self.__tipo == 1:
             return (Calc.soma(n1, n2))
         elif self.__tipo == 2:
@@ -56,4 +63,18 @@ class Perguntas:
         elif self.__tipo == 5:
             return (Calc.divisao_exata(n1, n2))
         elif self.__tipo == 6:
+<<<<<<< HEAD
             return (Calc.resto(n1, n2))
+=======
+            return (Calc.resto(n1, n2))
+        
+################################################
+# Faltou o if __name__......
+
+        
+calc = Perguntas(0,0,0)
+n1 = calc.set_n1(0)
+tipo = calc.set_tipo(0)
+n2 = calc.set_n2(0)
+print(calc.get_resposta(n1,n2,tipo))
+>>>>>>> d86ca826e15ff386453a4d20f14b592577d70ee2
