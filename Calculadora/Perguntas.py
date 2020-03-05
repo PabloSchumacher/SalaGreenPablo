@@ -1,7 +1,6 @@
 from Calculadora.Operacoes import Opecacoes
 
 class Perguntas:
-
     def __init__(self, n1,n2,tipo):
         self.__n1 = n1
         self.__n2 = n2
@@ -45,7 +44,7 @@ class Perguntas:
         return self.__tipo
 
     def get_resposta(self,n1,n2,tipo):
-        Calc = Opecacoes()
+        Calc = Opecacoes(n1,n2)
         if self.__tipo == 1:
             return (Calc.soma(n1, n2))
         elif self.__tipo == 2:
@@ -58,9 +57,3 @@ class Perguntas:
             return (Calc.divisao_exata(n1, n2))
         elif self.__tipo == 6:
             return (Calc.resto(n1, n2))
-
-calc = Perguntas(0,0,0)
-n1 = calc.set_n1(0)
-tipo = calc.set_tipo(0)
-n2 = calc.set_n2(0)
-print(calc.get_resposta(n1,n2,tipo))
